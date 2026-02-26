@@ -22,4 +22,8 @@ public class JobService {
         return service.getAllJobs();
     }
 
+    public JobPost getJob(Integer i) {
+        return service.getJob(i);
+    }
+
 }
