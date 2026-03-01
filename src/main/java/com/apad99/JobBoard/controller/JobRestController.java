@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.apad99.JobBoard.model.JobPost;
 import com.apad99.JobBoard.service.JobService;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -32,6 +33,12 @@ public class JobRestController {
     public JobPost getJob(@PathVariable Integer id) {
         return service.getJob(id);
     }
+
+    @GetMapping("jobPosts/keyword/{keyword}")
+    public List<JobPost> searchByKeyword(@PathVariable String keyword) {
+        return service.search(keyword);
+    }
+    
 
     @PostMapping("jobPost")
     public JobPost addJob(@RequestBody JobPost jobPost) {
