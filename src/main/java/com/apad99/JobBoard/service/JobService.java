@@ -12,18 +12,26 @@ import com.apad99.JobBoard.repo.JobRepo;
 public class JobService {
     
     @Autowired
-    private JobRepo service;
+    private JobRepo repo;
 
     public void addJob(JobPost jobPost) {
-        service.addJob(jobPost);
+        repo.addJob(jobPost);
     }
 
     public List<JobPost> getAllJobs() {
-        return service.getAllJobs();
+        return repo.getAllJobs();
     }
 
     public JobPost getJob(Integer i) {
-        return service.getJob(i);
+        return repo.getJob(i);
+    }
+
+    public void updateJob(JobPost jobPost) {
+        repo.updateJob(jobPost);
+    }
+
+    public void deleteJob(Integer postId) {
+        repo.deleteJob(postId);
     }
 
 }
